@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp-rc
+  labels:
+    app: fsgq
+    type: wnqh
+spec:
+  replicas: 6
+  selector:
+    #matchLabels:
+    app: fsgq
+  template:
+    metadata:
+      labels:
+        app: fsgq
+        type: wnqh
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx

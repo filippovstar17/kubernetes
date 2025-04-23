@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: fsgq
+    type: wnqh
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+        - fsgq
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: fsgq
+        type: wnqh
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
