@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wnqh
+    tier: fsgq
+  name: lab-nginx
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: wnqh
+  template:
+    metadata:
+      labels:
+        app: wnqh
+    spec:
+      containers:
+      - image: nginx
+        name: nginx

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fsgq
+  name: label-nginx-example
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: fsgq
+  template:
+    metadata:
+      labels:
+        app: fsgq
+    spec:
+      containers:
+      - image: nginx
+        name: nginx

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    ## This label is applied to the Deployment
+    type: wnqh
+    tier: fsgq
+  name: nginx-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      ## This label is used to match the Pod to create replicas
+      type: wnqh
+  template:
+    metadata:
+      labels:
+        ## This label is applied to the Pod
+        type: wnqh
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        ## This label is used to deploy the pod on matching nodes
+        color: blue
