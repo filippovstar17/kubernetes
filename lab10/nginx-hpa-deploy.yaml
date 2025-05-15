@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    type: wnqh
+  name: nginx-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: wnqh
+  template:
+    metadata:
+      labels:
+        type: wnqh
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
